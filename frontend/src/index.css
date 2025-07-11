@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+:root {
+  /* Custom CSS Variables for Design System */
+  --primary-50: #eff6ff;
+  --primary-100: #dbeafe;
+  --primary-500: #3b82f6;
+  --primary-600: #2563eb;
+  --primary-700: #1d4ed8;
+  --primary-900: #1e3a8a;
+
+  --success-500: #10b981;
+  --success-600: #059669;
+
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+
+  --danger-500: #ef4444;
+  --danger-600: #dc2626;
+
+  --gray-50: #f9fafb;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* Typography */
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, sans-serif;
+  line-height: 1.6;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  color: var(--gray-700);
+  background: #1a1a1a;
+  background-attachment: fixed;
+}
+
+@layer utilities {
+  .grid-cols-16 {
+    grid-template-columns: repeat(16, minmax(0, 1fr));
+  }
+}
+
+@layer components {
+  .mtg-card {
+    @apply bg-white/95 backdrop-blur-md rounded-2xl shadow-lg border border-white/20 p-6 transition-all duration-300 ease-out;
+  }
+
+  .mtg-card:hover {
+    @apply transform -translate-y-1 shadow-xl;
+  }
+
+  .mtg-button {
+    @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold px-6 py-3 rounded-xl border-none cursor-pointer transition-all duration-300 ease-out shadow-lg relative overflow-hidden;
+  }
+
+  .mtg-button::before {
+    content: "";
+    @apply absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-500;
+  }
+
+  .mtg-button:hover::before {
+    @apply left-[100%];
+  }
+
+  .mtg-button:hover {
+    @apply transform -translate-y-1 shadow-xl;
+  }
+
+  .mtg-button:active {
+    @apply transform translate-y-0;
+  }
+
+  .mtg-button:disabled {
+    @apply opacity-60 cursor-not-allowed transform-none;
+  }
+
+  .mtg-button.success {
+    @apply bg-gradient-to-r from-green-500 to-green-600 shadow-green-500/30;
+  }
+
+  .mtg-button.warning {
+    @apply bg-gradient-to-r from-yellow-500 to-yellow-600 shadow-yellow-500/30;
+  }
+
+  .mtg-button.danger {
+    @apply bg-gradient-to-r from-red-500 to-red-600 shadow-red-500/30;
+  }
+
+  .mtg-input {
+    @apply bg-white/90 border-2 border-gray-300/50 rounded-xl px-4 py-3 text-sm transition-all duration-300 ease-out backdrop-blur-md;
+  }
+
+  .mtg-input:focus {
+    @apply outline-none border-blue-500 shadow-lg bg-white;
+  }
+
+  .mtg-input::placeholder {
+    @apply text-gray-400;
+  }
+
+  .upload-area {
+    @apply bg-white/10 backdrop-blur-md border-2 border-dashed border-white/30 rounded-3xl p-8 text-center transition-all duration-300 ease-out cursor-pointer;
+  }
+
+  .upload-area:hover {
+    @apply bg-white/15 border-white/50 transform -translate-y-1;
+  }
+
+  .upload-area.drag-over {
+    @apply bg-blue-500/10 border-blue-500 transform scale-105;
+  }
+
+  .card-grid {
+    @apply grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7;
+  }
+
+  .card-item {
+    @apply bg-white/95 backdrop-blur-md rounded-2xl p-4 transition-all duration-300 ease-out border border-white/20 cursor-pointer;
+  }
+
+  .card-item:hover {
+    @apply transform -translate-y-2 scale-105 shadow-2xl;
+  }
+
+  .loading-spinner {
+    @apply w-10 h-10 border-4 border-white/30 border-t-blue-500 rounded-full animate-spin;
+  }
+
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent;
+  }
+
+  /* MTG Card Back Styles */
+  .mtg-card-back {
+    @apply bg-gradient-to-br from-yellow-600 via-yellow-700 to-yellow-800 rounded-lg shadow-lg border-2 border-yellow-900 relative overflow-hidden;
+  }
+
+  .mtg-card-back::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-yellow-500/20 to-transparent;
+  }
+
+  .mtg-card-back::after {
+    content: "";
+    @apply absolute top-2 left-2 right-2 bottom-2 border border-yellow-400/30 rounded;
+  }
+
+  /* Commander name styling */
+  .commander-name {
+    @apply text-yellow-200 text-xs truncate px-1 mt-1 font-medium;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .mtg-deck-card {
+    @apply bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg shadow-lg border-2 border-blue-900 relative overflow-hidden;
+  }
+
+  .mtg-deck-card::before {
+    content: "";
+    @apply absolute inset-0 bg-gradient-to-br from-blue-500/20 to-transparent;
+  }
+
+  .mtg-deck-card::after {
+    content: "";
+    @apply absolute top-2 left-2 right-2 bottom-2 border border-blue-400/30 rounded;
+  }
+
+  /* Card Hover Effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  .card-hover:hover {
+    @apply transform -translate-y-2 scale-105 shadow-xl;
+  }
+
+  /* Selected card highlight */
+  .card-selected {
+    @apply transform scale-105 shadow-2xl rounded-lg;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 10px 25px rgba(0, 0, 0, 0.2);
+    animation: selected-pulse 2s ease-in-out infinite;
+  }
+
+  .card-selected .mtg-card-back {
+    @apply border-blue-400;
+    box-shadow: inset 0 0 10px rgba(59, 130, 246, 0.3);
+  }
+
+  @keyframes selected-pulse {
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.6),
+        0 10px 25px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.8),
+        0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  /* Tooltip Styles */
+  .tooltip {
+    @apply absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 transition-opacity whitespace-nowrap z-10;
+  }
+
+  .tooltip.show {
+    @apply opacity-100;
+  }
+
+  /* Draw card hover effect */
+  .draw-card-hover {
+    @apply relative cursor-pointer transition-all duration-300;
+  }
+
+  .draw-card-hover:hover .mtg-card-back {
+    @apply blur-sm;
+  }
+
+  .draw-card-hover:hover::after {
+    content: "Draw Card";
+    @apply absolute inset-0 flex items-center justify-center bg-blue-600/80 text-white font-bold text-lg rounded-lg z-10;
+    backdrop-filter: blur(2px);
+    pointer-events: none;
+  }
+
+  .draw-card-hover:hover::before {
+    content: "";
+    @apply absolute inset-0 bg-blue-600/20 rounded-lg z-5;
+    pointer-events: none;
+  }
+
+  /* Commander card - same as deck cards */
+  .commander-card {
+    @apply w-32 h-44 opacity-80 transition-all duration-300 cursor-default relative;
+  }
+
+  .commander-full-content {
+    @apply opacity-0 invisible transition-all duration-300 pointer-events-none absolute inset-0;
+    transform: scale(0.8);
+  }
+}
+
+/* Hand card hover effect */
+.hand-card {
+  @apply relative;
+}
+
+.hand-card:hover .hand-card-full {
+  @apply opacity-100 visible;
+}
+
+.hand-card-full {
+  @apply opacity-0 invisible transition-all duration-300 pointer-events-none absolute top-0 left-full w-64 h-96 z-50;
+  transform: translateY(-50%);
+}
+
+/* Custom scrollbar styles - more aggressive approach */
+.card-text-scrollable {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.card-text-scrollable::-webkit-scrollbar {
+  width: 4px !important;
+  background: transparent !important;
+}
+
+.card-text-scrollable::-webkit-scrollbar-track {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+}
+
+.card-text-scrollable::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 2px !important;
+  border: none !important;
+}
+
+.card-text-scrollable::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5) !important;
+}
+
+.card-text-scrollable::-webkit-scrollbar-corner {
+  background: transparent !important;
+}
+
+/* Target any div with overflow-y-auto */
+div[class*="overflow-y-auto"]::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+div[class*="overflow-y-auto"]::-webkit-scrollbar {
+  width: 4px;
+}
+
+div[class*="overflow-y-auto"]::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 2px;
+}
+
+/* Global scrollbar styles for all elements */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox scrollbar styles */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card-grid {
+    @apply grid-cols-1 sm:grid-cols-2;
+  }
+
+  .mtg-card {
+    @apply p-4;
+  }
+
+  .upload-area {
+    @apply p-6;
+  }
+}

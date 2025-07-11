@@ -1,0 +1,602 @@
+Magic: The Gathering - Comprehensive Rules & Actions Reference
+==============================================================
+
+# 1. Turn Structure: Phases & Steps
+
+A Magic turn consists of the following phases and steps:
+
+## Beginning Phase
+- **Untap Step**: Untap all your tapped permanents.
+- **Upkeep Step**: Abilities that trigger "at the beginning of your upkeep" go on the stack.
+- **Draw Step**: Draw a card.
+
+## Main Phase (Precombat)
+- You may play a land, cast spells, activate abilities, and take actions.
+
+## Combat Phase
+- **Beginning of Combat Step**: Triggers and actions before attackers are declared.
+- **Declare Attackers Step**: Active player declares which creatures attack and whom/what they attack.
+- **Declare Blockers Step**: Defending player declares blockers.
+- **Combat Damage Step**: Assign and deal combat damage.
+- **End of Combat Step**: Triggers and actions after combat damage.
+
+## Main Phase (Postcombat)
+- Same as precombat main phase.
+
+## Ending Phase
+- **End Step**: "At the beginning of the end step" triggers go on the stack.
+- **Cleanup Step**: Discard down to maximum hand size, remove damage, end "until end of turn" effects.
+
+# 2. Actions, Abilities, and Keywords (A-Z)
+
+## Activated Ability
+- **Definition:** An ability that can be activated by paying a cost (written as "[Cost]: [Effect]").
+- **Rules:** Can be activated any time you could cast an instant, unless otherwise stated. Goes on the stack and can be responded to.
+- **Example:** "{T}: Add {G}." or "{1}{U}: Scry 1."
+
+## Attack
+- **Definition:** Declaring a creature as an attacker during the declare attackers step.
+- **Rules:** Only untapped creatures that have been under your control since the beginning of your turn (unless they have haste) can attack. You choose which player or planeswalker to attack.
+- **Example:** "Attack with two 2/2 creatures at your opponent."
+
+## Block
+- **Definition:** Declaring a creature as a blocker during the declare blockers step.
+- **Rules:** Only untapped creatures can block. Each blocker can block one attacking creature unless it has abilities like "can block an additional creature."
+- **Example:** "Block a 3/3 attacker with a 1/4 defender."
+
+## Cast
+- **Definition:** To play a spell from your hand (or other zone if allowed) by paying its mana cost and any additional costs.
+- **Rules:** Casting a spell puts it on the stack. Players may respond before it resolves. Some spells have timing restrictions (e.g., sorceries).
+- **Example:** "Cast Lightning Bolt targeting a creature."
+
+## Counter (as a verb)
+- **Definition:** To counter a spell or ability is to remove it from the stack; it does not resolve and goes to the graveyard.
+- **Rules:** Only spells and abilities on the stack can be countered. Some spells are uncounterable (e.g., "This spell can't be countered.").
+- **Example:** "Counter target spell with Counterspell."
+
+## Counter (as a noun)
+- **Definition:** A marker placed on a permanent or player, often to track power/toughness, abilities, or other effects.
+- **Rules:** Common counters include +1/+1, -1/-1, loyalty, charge, and time counters. Counters persist until removed or the permanent leaves the battlefield.
+- **Example:** "Put a +1/+1 counter on target creature."
+
+## Control
+- **Definition:** To control a permanent is to have authority over it; you decide how it is used.
+- **Rules:** Control can change due to spells or abilities. "Controller" is not always the owner.
+- **Example:** "Gain control of target creature until end of turn."
+
+## Copy
+- **Definition:** To create a copy of a spell, permanent, or ability.
+- **Rules:** Copies inherit all characteristics of the original unless modified. Copies of spells are put on the stack; copies of permanents enter the battlefield.
+- **Example:** "Create a token that's a copy of target creature."
+
+## Crew
+- **Definition:** A keyword on Vehicles. Tap any number of creatures you control with total power equal to or greater than the crew number to turn the Vehicle into an artifact creature until end of turn.
+- **Rules:** Only untapped creatures can be tapped to crew. Crew can be activated multiple times in a turn.
+- **Example:** "Crew 3" means tap creatures with total power 3 or more.
+
+## Cycling
+- **Definition:** A keyword ability that allows you to pay a cost and discard the card to draw a card.
+- **Rules:** Cycling can be done any time you could cast an instant. Some cards have additional effects when cycled.
+- **Example:** "{2}: Discard this card: Draw a card."
+
+## Convoke
+- **Definition:** A keyword that lets you tap creatures to help pay for a spell. Each tapped creature pays for {1} or one mana of its color.
+- **Rules:** Tapping a creature for convoke does not cause summoning sickness. Convoke can be used for colored or colorless mana.
+- **Example:** "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for {1} or one mana of that creature's color.)"
+
+## Cascade
+- **Definition:** When you cast a spell with cascade, exile cards from the top of your library until you exile a nonland card with lesser mana value. You may cast it without paying its mana cost. Put the rest on the bottom of your library in a random order.
+- **Rules:** The cascaded spell is cast, not put directly onto the stack, so it can be countered. Cascade triggers only when the spell is cast, not copied.
+- **Example:** "Cascade (When you cast this spell, exile cards from the top of your library until you exile a nonland card with lesser mana value. You may cast it without paying its mana cost.)"
+
+## Deathtouch
+- **Definition:** Any amount of damage this creature deals to a creature is enough to destroy it.
+- **Rules:** Deathtouch works with any damage, including combat damage and noncombat damage. Multiple instances of deathtouch don't stack.
+- **Example:** A 1/1 creature with deathtouch can destroy any creature it damages.
+
+## Defender
+- **Definition:** This creature can't attack.
+- **Rules:** Defender creatures can still block normally. Some effects can override defender.
+- **Example:** "Defender (This creature can't attack.)"
+
+## Destroy
+- **Definition:** To destroy a permanent is to put it into its owner's graveyard.
+- **Rules:** Destroyed permanents go to the graveyard unless they have indestructible or are regenerated. Destroy is different from sacrifice.
+- **Example:** "Destroy target creature."
+
+## Devour
+- **Definition:** As this creature enters the battlefield, you may sacrifice any number of creatures. This creature enters the battlefield with that many +1/+1 counters on it for each creature sacrificed this way.
+- **Rules:** Devour is a replacement effect that happens as the creature enters the battlefield. You can sacrifice any creatures, not just ones you control.
+- **Example:** "Devour 2 (As this creature enters the battlefield, you may sacrifice any number of creatures. This creature enters the battlefield with twice that many +1/+1 counters on it.)"
+
+## Double Strike
+- **Definition:** This creature deals both first-strike and regular combat damage.
+- **Rules:** Double strike creatures deal damage in both the first-strike damage step and the regular combat damage step.
+- **Example:** A 2/2 with double strike deals 2 damage in first-strike step, then 2 more in regular combat damage step.
+
+## Draw
+- **Definition:** To draw a card is to take the top card of your library and put it into your hand.
+- **Rules:** If you can't draw a card (empty library), you lose the game. Drawing multiple cards happens one at a time.
+- **Example:** "Draw a card" or "Draw three cards."
+
+## Enchant
+- **Definition:** To attach an Aura to a permanent or player.
+- **Rules:** Auras can only enchant objects that match their enchant ability. If the enchanted object becomes illegal, the Aura is put into its owner's graveyard.
+- **Example:** "Enchant creature" or "Enchant player."
+
+## Equip
+- **Definition:** To attach an Equipment to a creature you control.
+- **Rules:** Equip can only be activated at sorcery speed unless the Equipment has flash. Only creatures can be equipped.
+- **Example:** "{2}: Attach this Equipment to target creature you control."
+
+## Evoke
+- **Definition:** An alternative cost that allows you to cast a creature for its evoke cost. If you do, it's sacrificed when it enters the battlefield.
+- **Rules:** Evoke is an alternative cost, not an additional cost. The creature enters the battlefield and is then sacrificed.
+- **Example:** "Evoke {1}{G} (You may cast this spell for its evoke cost. If you do, it's sacrificed when it enters the battlefield.)"
+
+## Exile
+- **Definition:** To exile a card is to put it into the exile zone, face up.
+- **Rules:** Exiled cards are removed from the game and typically can't be retrieved unless the effect that exiled them allows it.
+- **Example:** "Exile target creature."
+
+## First Strike
+- **Definition:** This creature deals combat damage before creatures without first strike.
+- **Rules:** First strike creatures deal damage in the first-strike damage step. If they survive, they deal damage again in the regular combat damage step.
+- **Example:** A 2/2 with first strike deals 2 damage before a 3/3 without first strike can deal damage back.
+
+## Flash
+- **Definition:** You may cast this spell any time you could cast an instant.
+- **Rules:** Flash allows you to cast the spell at instant speed. Flash doesn't change when you can activate abilities of the permanent.
+- **Example:** "Flash (You may cast this spell any time you could cast an instant.)"
+
+## Flying
+- **Definition:** This creature can't be blocked except by creatures with flying or reach.
+- **Rules:** Flying creatures can only be blocked by creatures with flying or reach. Flying doesn't affect blocking other creatures.
+- **Example:** "Flying (This creature can't be blocked except by creatures with flying or reach.)"
+
+## Haste
+- **Definition:** This creature can attack and {T} as soon as it comes under your control.
+- **Rules:** Haste allows a creature to attack or use tap abilities immediately, even if it hasn't been under your control since the beginning of your turn.
+- **Example:** "Haste (This creature can attack and {T} as soon as it comes under your control.)"
+
+## Hexproof
+- **Definition:** This permanent or player can't be the target of spells or abilities your opponents control.
+- **Rules:** Hexproof only prevents targeting. It doesn't prevent damage, destruction, or other effects that don't target.
+- **Example:** "Hexproof (This creature can't be the target of spells or abilities your opponents control.)"
+
+## Indestructible
+- **Definition:** This permanent can't be destroyed. Effects that say "destroy" don't destroy it.
+- **Rules:** Indestructible permanents can still be sacrificed, exiled, or have their toughness reduced to 0. Indestructible doesn't prevent damage.
+- **Example:** "Indestructible (This creature can't be destroyed.)"
+
+## Infect
+- **Definition:** This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.
+- **Rules:** Damage from creatures with infect doesn't cause loss of life. Instead, it puts -1/-1 counters on creatures or poison counters on players.
+- **Example:** "Infect (This creature deals damage to creatures in the form of -1/-1 counters and to players in the form of poison counters.)"
+
+## Intimidate
+- **Definition:** This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.
+- **Rules:** Intimidate is similar to fear but includes artifact creatures as potential blockers.
+- **Example:** "Intimidate (This creature can't be blocked except by artifact creatures and/or creatures that share a color with it.)"
+
+## Kicker
+- **Definition:** An additional cost that may be paid when casting a spell for an additional effect.
+- **Rules:** Kicker is an additional cost, not an alternative cost. You can pay kicker costs multiple times if the spell allows it.
+- **Example:** "Kicker {2} (You may pay an additional {2} as you cast this spell.)"
+
+## Lifelink
+- **Definition:** Damage dealt by this creature also causes its controller to gain that much life.
+- **Rules:** Lifelink works with any damage the creature deals, not just combat damage. Multiple instances of lifelink don't stack.
+- **Example:** "Lifelink (Damage dealt by this creature also causes its controller to gain that much life.)"
+
+## Menace
+- **Definition:** This creature can't be blocked except by two or more creatures.
+- **Rules:** Menace requires at least two creatures to block, regardless of their individual abilities.
+- **Example:** "Menace (This creature can't be blocked except by two or more creatures.)"
+
+## Morph
+- **Definition:** You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.
+- **Rules:** Face-down creatures are 2/2 colorless creatures with no name, types, or abilities. Morph costs are always paid as a special action.
+- **Example:** "Morph {4} (You may cast this card face down as a 2/2 creature for {3}. Turn it face up any time for its morph cost.)"
+
+## Overload
+- **Definition:** You may cast this spell for its overload cost. If you do, change its text by replacing all instances of "target" with "each."
+- **Rules:** Overload is an alternative cost. When overloaded, the spell affects all legal objects instead of targeting specific ones.
+- **Example:** "Overload {3}{U}{U} (You may cast this spell for its overload cost. If you do, change its text by replacing all instances of "target" with "each.")"
+
+## Persist
+- **Definition:** When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.
+- **Rules:** Persist only works if the creature had no -1/-1 counters when it died. The creature returns with a -1/-1 counter.
+- **Example:** "Persist (When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.)"
+
+## Phasing
+- **Definition:** This permanent phases out or phases in during your untap step.
+- **Rules:** Phased-out permanents are treated as though they don't exist. They phase in during their controller's untap step.
+- **Example:** "Phasing (This permanent phases out or phases in during your untap step.)"
+
+## Prowess
+- **Definition:** Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.
+- **Rules:** Prowess triggers for each noncreature spell you cast, not just the first one. The bonus is cumulative.
+- **Example:** "Prowess (Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.)"
+
+## Reach
+- **Definition:** This creature can block creatures with flying.
+- **Rules:** Reach allows a creature to block flying creatures. It doesn't prevent the creature from blocking nonflying creatures.
+- **Example:** "Reach (This creature can block creatures with flying.)"
+
+## Regenerate
+- **Definition:** The next time this creature would be destroyed this turn, it isn't. Instead tap it, remove all damage from it, and remove it from combat.
+- **Rules:** Regeneration creates a shield that prevents the next destruction. It doesn't prevent exile or sacrifice.
+- **Example:** "{1}{G}: Regenerate target creature."
+
+## Scry
+- **Definition:** Look at the top N cards of your library, then put any number of them on the bottom of your library and the rest on top in any order.
+- **Rules:** Scry allows you to see the cards and choose their order. You can put all, some, or none on the bottom.
+- **Example:** "Scry 2 (Look at the top 2 cards of your library, then put any number of them on the bottom of your library and the rest on top in any order.)"
+
+## Shroud
+- **Definition:** This permanent or player can't be the target of spells or abilities.
+- **Rules:** Shroud prevents all targeting, including by the controller. It doesn't prevent damage or other non-targeting effects.
+- **Example:** "Shroud (This creature can't be the target of spells or abilities.)"
+
+## Soulbond
+- **Definition:** When this creature enters the battlefield, you may pair it with another unpaired creature you control until either leaves the battlefield.
+- **Rules:** Soulbond creates a pairing that gives both creatures abilities. The pairing ends if either creature leaves the battlefield.
+- **Example:** "Soulbond (When this creature enters the battlefield, you may pair it with another unpaired creature you control until either leaves the battlefield.)"
+
+## Split Second
+- **Definition:** As long as this spell is on the stack, players can't cast other spells or activate abilities that aren't mana abilities.
+- **Rules:** Split second prevents responses to the spell. Only mana abilities can be activated while a split second spell is on the stack.
+- **Example:** "Split second (As long as this spell is on the stack, players can't cast other spells or activate abilities that aren't mana abilities.)"
+
+## Storm
+- **Definition:** When you cast this spell, copy it for each spell cast before it this turn.
+- **Rules:** Storm counts all spells cast this turn, not just by you. The copies are put on the stack and can be countered.
+- **Example:** "Storm (When you cast this spell, copy it for each spell cast before it this turn.)"
+
+## Suspend
+- **Definition:** Rather than cast this card from your hand, you may pay {X} and exile it with X time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.
+- **Rules:** Suspend is an alternative way to cast the spell. The suspended card is exiled with time counters and cast automatically when the last counter is removed.
+- **Example:** "Suspend 3—{1}{R} (Rather than cast this card from your hand, you may pay {1}{R} and exile it with three time counters on it. At the beginning of your upkeep, remove a time counter. When the last is removed, cast it without paying its mana cost.)"
+
+## Tap/Untap
+- **Definition:** To tap a permanent is to turn it sideways to show it has been used. To untap is to turn it back upright.
+- **Rules:** Tapped permanents can't be tapped again. Untapped permanents can be tapped for their abilities or to attack/block.
+- **Example:** "{T}: Add {G}." or "Untap target creature."
+
+## Trample
+- **Definition:** If this creature would assign enough damage to its blockers to destroy them, you may have it assign the rest of its damage to defending player or planeswalker.
+- **Rules:** Trample allows excess damage to go through to the defending player. You choose how to assign damage among blockers.
+- **Example:** "Trample (If this creature would assign enough damage to its blockers to destroy them, you may have it assign the rest of its damage to defending player or planeswalker.)"
+
+## Undying
+- **Definition:** When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.
+- **Rules:** Undying only works if the creature had no +1/+1 counters when it died. The creature returns with a +1/+1 counter.
+- **Example:** "Undying (When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.)"
+
+## Vigilance
+- **Definition:** This creature doesn't tap when attacking.
+- **Rules:** Vigilance allows a creature to attack without tapping, so it can still block or use tap abilities afterward.
+- **Example:** "Vigilance (This creature doesn't tap when attacking.)"
+
+## Wither
+- **Definition:** This creature deals damage to creatures in the form of -1/-1 counters.
+- **Rules:** Wither is similar to infect but only affects creatures. It doesn't put poison counters on players.
+- **Example:** "Wither (This creature deals damage to creatures in the form of -1/-1 counters.)"
+
+# 3. Game Actions and Mechanics
+
+## Mana
+- **Definition:** The resource used to cast spells and activate abilities.
+- **Types:** White (W), Blue (U), Black (B), Red (R), Green (G), and Colorless (C).
+- **Rules:** Mana is produced by lands and other sources. It empties from your mana pool at the end of each step and phase.
+
+## The Stack
+- **Definition:** The zone where spells and abilities wait to resolve.
+- **Rules:** Spells and abilities are put on the stack when cast or activated. They resolve in last-in, first-out order. Players can respond to spells and abilities on the stack.
+
+## Zones
+- **Library:** Your deck of cards.
+- **Hand:** Cards you can play.
+- **Battlefield:** Where permanents exist during the game.
+- **Graveyard:** Where destroyed permanents and used spells go.
+- **Exile:** Removed from the game (formerly "removed from the game").
+- **Stack:** Where spells and abilities wait to resolve.
+
+## Priority
+- **Definition:** The right to cast spells or activate abilities.
+- **Rules:** Players get priority after each spell or ability resolves. The active player gets priority first during their turn.
+
+## State-Based Actions
+- **Definition:** Game rules that are checked whenever a player would get priority.
+- **Examples:** Destroying creatures with 0 toughness, players losing with 0 life, etc.
+
+## Continuous Effects
+- **Definition:** Effects that modify the characteristics of objects or players.
+- **Types:** Static abilities, replacement effects, and prevention effects.
+
+# 4. Card Types and Characteristics
+
+## Card Types
+- **Land:** Provides mana and has special rules for playing.
+- **Creature:** Can attack, block, and be affected by summoning sickness.
+- **Artifact:** Often provides abilities or effects.
+- **Enchantment:** Provides ongoing effects.
+- **Instant:** Can be cast at any time.
+- **Sorcery:** Can only be cast during your main phase when the stack is empty.
+- **Planeswalker:** Has loyalty abilities and can be attacked.
+- **Tribal:** A card type that can be applied to other card types.
+
+## Characteristics
+- **Name:** The card's title.
+- **Mana Cost:** The cost to cast the spell.
+- **Color:** Determined by the mana symbols in its mana cost.
+- **Type Line:** Shows the card's type and subtypes.
+- **Power/Toughness:** Only for creatures (e.g., 2/2).
+- **Loyalty:** Only for planeswalkers.
+- **Text Box:** Contains the card's rules text and abilities.
+
+# 5. Advanced Rules and Interactions
+
+## Layer System
+- **Definition:** The order in which continuous effects are applied.
+- **Layers:** Copy effects, control-changing effects, text-changing effects, type-changing effects, color-changing effects, ability-adding/removing effects, power/toughness-setting effects, power/toughness-modifying effects, and power/toughness counters.
+
+## Timestamp Order
+- **Definition:** When multiple effects would apply to the same object, the one with the earlier timestamp takes precedence.
+- **Rules:** Effects that depend on other effects are applied after the effects they depend on.
+
+## Dependency
+- **Definition:** When one effect depends on another effect being applied first.
+- **Rules:** Dependent effects are applied after the effects they depend on, regardless of timestamp.
+
+## Split Cards
+- **Definition:** Cards with two different spells on them.
+- **Rules:** You can cast either half or both halves fused (if they have fuse). The mana value is the sum of both halves.
+
+## Modal Spells
+- **Definition:** Spells that let you choose from multiple effects.
+- **Rules:** You choose the mode(s) when you cast the spell. Some spells let you choose multiple modes.
+
+## Kicker and Additional Costs
+- **Definition:** Costs that can be paid in addition to the base mana cost.
+- **Rules:** Additional costs are paid when casting the spell. Alternative costs replace the mana cost.
+
+## Flashback
+- **Definition:** An alternative cost that lets you cast a spell from your graveyard.
+- **Rules:** Flashback exiles the card when it resolves. You can't flashback a card that was exiled by flashback.
+
+## Buyback
+- **Definition:** An additional cost that returns the spell to your hand when it resolves.
+- **Rules:** Buyback is paid when casting the spell. If paid, the spell returns to your hand instead of going to the graveyard.
+
+## Rebound
+- **Definition:** If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.
+- **Rules:** Rebound only works when cast from your hand. The spell is exiled and can be cast again on your next turn.
+
+## Miracle
+- **Definition:** You may cast this card for its miracle cost when you draw it if it's the first card you drew this turn.
+- **Rules:** Miracle must be cast immediately when drawn if it's the first card drawn that turn. The miracle cost is an alternative cost.
+
+## Overload
+- **Definition:** You may cast this spell for its overload cost. If you do, change its text by replacing all instances of "target" with "each."
+- **Rules:** Overload is an alternative cost. When overloaded, the spell affects all legal objects instead of targeting specific ones.
+
+## Bestow
+- **Definition:** You may cast this card for its bestow cost. If you do, it's an Aura spell with enchant creature. It becomes a creature again if it's not attached to a creature.
+- **Rules:** Bestow is an alternative cost. The creature becomes an Aura when cast for its bestow cost.
+
+## Monstrosity
+- **Definition:** If this creature isn't monstrous, put X +1/+1 counters on it and it becomes monstrous.
+- **Rules:** Monstrosity can only be activated if the creature isn't already monstrous. Once monstrous, it can't become monstrous again.
+
+## Outlast
+- **Definition:** {T}: Put a +1/+1 counter on this creature. Outlast only as a sorcery.
+- **Rules:** Outlast can only be activated at sorcery speed. It puts +1/+1 counters on the creature.
+
+## Prowess
+- **Definition:** Whenever you cast a noncreature spell, this creature gets +1/+1 until end of turn.
+- **Rules:** Prowess triggers for each noncreature spell you cast. The bonus is cumulative.
+
+## Renown
+- **Definition:** When this creature deals combat damage to a player, if it isn't renowned, put a +1/+1 counter on it and it becomes renowned.
+- **Rules:** Renown only triggers once per creature. Once renowned, it can't become renowned again.
+
+## Scavenge
+- **Definition:** Exile this card from your graveyard: Put a number of +1/+1 counters equal to this card's power on target creature. Scavenge only as a sorcery.
+- **Rules:** Scavenge can only be activated at sorcery speed. The card is exiled when scavenged.
+
+## Unleash
+- **Definition:** You may have this creature enter the battlefield with a +1/+1 counter on it. It can't block as long as it has a +1/+1 counter on it.
+- **Rules:** Unleash is a choice made when the creature enters the battlefield. If you choose to put a counter on it, it can't block.
+
+## Bloodrush
+- **Definition:** Discard this card: Target attacking creature gets +X/+Y until end of turn.
+- **Rules:** Bloodrush can only be activated during the declare attackers step. The card is discarded as part of the cost.
+
+## Battalion
+- **Definition:** Whenever this creature and at least two other creatures attack, [effect].
+- **Rules:** Battalion triggers when this creature and at least two other creatures are declared as attackers.
+
+## Cipher
+- **Definition:** Then you may exile this instant or sorcery card encoded on a creature you control. Whenever that creature deals combat damage to a player, its controller may cast a copy of the encoded card without paying its mana cost.
+- **Rules:** Cipher is an ability that triggers when the spell resolves. The encoded card can be cast multiple times.
+
+## Evolve
+- **Definition:** Whenever a creature enters the battlefield under your control, if that creature has greater power or toughness than this creature, put a +1/+1 counter on this creature.
+- **Rules:** Evolve triggers when any creature enters under your control, not just ones you cast.
+
+## Extort
+- **Definition:** Whenever you cast a spell, you may pay {W/B}. If you do, each opponent loses 1 life and you gain that much life.
+- **Rules:** Extort triggers for each spell you cast. You can pay the cost multiple times for the same spell.
+
+## Fuse
+- **Definition:** You may cast one or both halves of this card from your hand.
+- **Rules:** Fuse allows you to cast both halves of a split card as one spell. Both halves resolve in order.
+
+## Graft
+- **Definition:** This creature enters the battlefield with a +1/+1 counter on it. Whenever another creature enters the battlefield, you may move a +1/+1 counter from this creature onto it.
+- **Rules:** Graft creates a +1/+1 counter that can be moved to other creatures when they enter the battlefield.
+
+## Haunt
+- **Definition:** When this card is put into a graveyard from play, remove it from the game haunting target creature.
+- **Rules:** Haunt exiles the card and attaches it to a creature. The haunted creature gets the haunt ability.
+
+## Hellbent
+- **Definition:** As long as you have no cards in hand, [effect].
+- **Rules:** Hellbent is a static ability that only works when your hand is empty.
+
+## Imprint
+- **Definition:** Exile a card: [effect]. (The exiled card is imprinted on this permanent.)
+- **Rules:** Imprint exiles a card and keeps track of it. The imprinted card affects the permanent's abilities.
+
+## Kinship
+- **Definition:** At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, [effect].
+- **Rules:** Kinship lets you look at the top card of your library and potentially reveal it for an effect.
+
+## Level Up
+- **Definition:** Level Up {cost} ({cost}: Put a level counter on this. Level up only as a sorcery.)
+- **Rules:** Level up can only be activated at sorcery speed. The creature gains abilities based on its level.
+
+## Living Weapon
+- **Definition:** When this Equipment enters the battlefield, create a 0/0 black Germ creature token, then attach this Equipment to it.
+- **Rules:** Living weapon creates a token and equips it automatically when the Equipment enters the battlefield.
+
+## Metalcraft
+- **Definition:** As long as you control three or more artifacts, [effect].
+- **Rules:** Metalcraft is a static ability that only works when you control three or more artifacts.
+
+## Modular
+- **Definition:** This creature enters the battlefield with a +1/+1 counter on it for each time you've cast your commander from the command zone this game.
+- **Rules:** Modular puts +1/+1 counters on the creature based on commander cast count.
+
+## Persist
+- **Definition:** When this creature dies, if it had no -1/-1 counters on it, return it to the battlefield under its owner's control with a -1/-1 counter on it.
+- **Rules:** Persist only works if the creature had no -1/-1 counters when it died.
+
+## Proliferate
+- **Definition:** Choose any number of permanents and/or players, then give each another counter of each kind already there.
+- **Rules:** Proliferate adds one of each type of counter that's already on the chosen objects.
+
+## Rebound
+- **Definition:** If you cast this spell from your hand, exile it as it resolves. At the beginning of your next upkeep, you may cast this card from exile without paying its mana cost.
+- **Rules:** Rebound only works when cast from your hand. The spell is exiled and can be cast again.
+
+## Scavenge
+- **Definition:** Exile this card from your graveyard: Put a number of +1/+1 counters equal to this card's power on target creature. Scavenge only as a sorcery.
+- **Rules:** Scavenge can only be activated at sorcery speed. The card is exiled when scavenged.
+
+## Soulbond
+- **Definition:** When this creature enters the battlefield, you may pair it with another unpaired creature you control until either leaves the battlefield.
+- **Rules:** Soulbond creates a pairing that gives both creatures abilities.
+
+## Undying
+- **Definition:** When this creature dies, if it had no +1/+1 counters on it, return it to the battlefield under its owner's control with a +1/+1 counter on it.
+- **Rules:** Undying only works if the creature had no +1/+1 counters when it died.
+
+## Unleash
+- **Definition:** You may have this creature enter the battlefield with a +1/+1 counter on it. It can't block as long as it has a +1/+1 counter on it.
+- **Rules:** Unleash is a choice made when the creature enters the battlefield.
+
+## Bloodthirst
+- **Definition:** This creature enters the battlefield with a +1/+1 counter on it if an opponent was dealt damage this turn.
+- **Rules:** Bloodthirst checks if any opponent was dealt damage this turn, not just by you.
+
+## Champion
+- **Definition:** As this creature enters the battlefield, exile another creature you control. When this creature leaves the battlefield, return the exiled card to the battlefield under its owner's control.
+- **Rules:** Champion exiles a creature when it enters and returns it when it leaves.
+
+## Conspire
+- **Definition:** As you cast this spell, you may tap two untapped creatures you control that share a color with it. When you do, copy it and you may choose a new target for the copy.
+- **Rules:** Conspire creates a copy of the spell when you tap two creatures of the same color.
+
+## Devour
+- **Definition:** As this creature enters the battlefield, you may sacrifice any number of creatures. This creature enters the battlefield with that many +1/+1 counters on it for each creature sacrificed this way.
+- **Rules:** Devour is a replacement effect that happens as the creature enters the battlefield.
+
+## Exalted
+- **Definition:** Whenever a creature you control attacks alone, that creature gets +1/+1 until end of turn.
+- **Rules:** Exalted triggers when exactly one creature attacks, not when a creature attacks alone.
+
+## Graft
+- **Definition:** This creature enters the battlefield with a +1/+1 counter on it. Whenever another creature enters the battlefield, you may move a +1/+1 counter from this creature onto it.
+- **Rules:** Graft creates a +1/+1 counter that can be moved to other creatures.
+
+## Haunt
+- **Definition:** When this card is put into a graveyard from play, remove it from the game haunting target creature.
+- **Rules:** Haunt exiles the card and attaches it to a creature.
+
+## Hellbent
+- **Definition:** As long as you have no cards in hand, [effect].
+- **Rules:** Hellbent is a static ability that only works when your hand is empty.
+
+## Imprint
+- **Definition:** Exile a card: [effect]. (The exiled card is imprinted on this permanent.)
+- **Rules:** Imprint exiles a card and keeps track of it.
+
+## Kinship
+- **Definition:** At the beginning of your upkeep, you may look at the top card of your library. If it shares a creature type with this creature, you may reveal it. If you do, [effect].
+- **Rules:** Kinship lets you look at the top card of your library.
+
+## Level Up
+- **Definition:** Level Up {cost} ({cost}: Put a level counter on this. Level up only as a sorcery.)
+- **Rules:** Level up can only be activated at sorcery speed.
+
+## Living Weapon
+- **Definition:** When this Equipment enters the battlefield, create a 0/0 black Germ creature token, then attach this Equipment to it.
+- **Rules:** Living weapon creates a token and equips it automatically.
+
+## Metalcraft
+- **Definition:** As long as you control three or more artifacts, [effect].
+- **Rules:** Metalcraft is a static ability that only works when you control three or more artifacts.
+
+## Modular
+- **Definition:** This creature enters the battlefield with a +1/+1 counter on it for each time you've cast your commander from the command zone this game.
+- **Rules:** Modular puts +1/+1 counters on the creature based on commander cast count.
+
+## Proliferate
+- **Definition:** Choose any number of permanents and/or players, then give each another counter of each kind already there.
+- **Rules:** Proliferate adds one of each type of counter that's already on the chosen objects.
+
+# 6. Tournament Rules and Formats
+
+## Constructed Formats
+- **Standard:** The most recent sets, rotating format.
+- **Modern:** Cards from 8th Edition forward.
+- **Legacy:** Almost all cards ever printed.
+- **Vintage:** All cards, with restricted list.
+- **Commander:** 100-card singleton with a legendary commander.
+
+## Limited Formats
+- **Draft:** Players open packs and pass cards around.
+- **Sealed:** Players open 6 packs and build a deck.
+- **Cube:** Custom card pool for drafting.
+
+## Tournament Structure
+- **Swiss Rounds:** Players paired against others with similar records.
+- **Top 8:** Single elimination after Swiss rounds.
+- **Pro Tour:** Premier tournament series.
+
+# 7. Common Rules Questions and Edge Cases
+
+## Timing and Priority
+- When can you respond to spells?
+- How does the stack work?
+- What happens when multiple triggers occur?
+
+## Combat Mechanics
+- How does damage assignment work?
+- What happens with multiple blockers?
+- How do combat tricks work?
+
+## Card Interactions
+- How do replacement effects work?
+- What happens with conflicting effects?
+- How do continuous effects interact?
+
+## Zone Changes
+- What happens when cards move between zones?
+- How do "leaves the battlefield" triggers work?
+- What happens to attached cards when the enchanted object leaves?
+
+This comprehensive reference covers the fundamental rules, keywords, and mechanics of Magic: The Gathering. For the most up-to-date and detailed rules, always refer to the official Magic: The Gathering Comprehensive Rules document. 
