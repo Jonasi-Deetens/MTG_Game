@@ -169,6 +169,26 @@ export interface Card {
   activatedAbilities?: ActivatedAbility[];
   canTarget?: (target: Target) => boolean;
   quantity?: number; // Number of copies in deck
+  
+  // Database fields
+  scryfall_id?: string;
+  type_line?: string;
+  oracle_text?: string;
+  colors?: string[];
+  set_code?: string;
+  collector_number?: string;
+  prices?: any;
+  legalities?: any;
+  flavor_text?: string;
+  artist?: string;
+  
+  // AI-generated fields
+  ai_generated_effects?: SpellEffect[];
+  ai_generated_abilities?: ActivatedAbility[];
+  ai_generated_keywords?: Keyword[];
+  ai_effect_description?: string;
+  ai_strategic_value?: string;
+  ai_combo_potential?: string;
 }
 
 export interface PhaseInfo {
