@@ -3,7 +3,6 @@ import type { DeckFormData, Card } from '../types/deck';
 import type { LegendaryCreature } from '../services/mtgApi';
 import { api } from '../services/api';
 import { mtgApi } from '../services/mtgApi';
-import { enhanceCardWithEffects, hasCustomEffects } from '../utils/cardEffects';
 
 interface DeckUploadProps {
   onBack: () => void;
@@ -97,34 +96,23 @@ const DeckUpload = ({ onBack, onDeckCreated }: DeckUploadProps) => {
 
         if (card) {
           // Create full card data for backend
-          const basicCardData: Card = {
+          const fullCardData: Card = {
             quantity: cardEntry.quantity,
             name: card.name,
             mana_cost: card.mana_cost,
             cmc: card.cmc,
+            colors: card.colors,
             type: card.type_line,
             text: card.oracle_text,
             power: card.power,
             toughness: card.toughness,
             image_url: card.image_uris?.normal,
-            id: parseInt(card.id) || Date.now() + Math.random(), // Ensure it's a number
+            id: card.id,
             rarity: card.rarity,
             set_name: card.set_name
           };
           
-          // Enhance the card with custom effects, keywords, and abilities
-          const enhancedCardData = enhanceCardWithEffects(basicCardData);
-          
-          // Log if we found custom effects for this card
-          if (hasCustomEffects(card.name)) {
-            console.log(`Enhanced ${card.name} with custom effects:`, {
-              keywords: enhancedCardData.keywords,
-              effects: enhancedCardData.effects,
-              activatedAbilities: enhancedCardData.activatedAbilities
-            });
-          }
-          
-          processedCardsData.push(enhancedCardData);
+          processedCardsData.push(fullCardData);
 
           // Check if it's a legendary creature
           if (mtgApi.isLegendaryCreature(card)) {
@@ -405,7 +393,7 @@ const DeckUpload = ({ onBack, onDeckCreated }: DeckUploadProps) => {
                     )}
                     <div className="flex justify-between">
                       <span>Total cards in deck:</span>
-                      <span className="font-medium">{processedCards.reduce((sum, card) => sum + (card.quantity || 1), 0)}</span>
+                      <span className="font-medium">{processedCards.reduce((sum, card) => sum + card.quantity, 0)}</span>
                     </div>
                   </div>
                   
@@ -414,21 +402,6 @@ const DeckUpload = ({ onBack, onDeckCreated }: DeckUploadProps) => {
                       <p className="text-orange-800 font-medium mb-1">Failed cards:</p>
                       <p className="text-orange-700">{failedCards.join(', ')}</p>
                       <p className="text-orange-600 mt-1">These cards will still be saved with basic information.</p>
-                    </div>
-                  )}
-                  
-                  {/* Enhanced Cards Notification */}
-                  {processedCards.length > 0 && (
-                    <div className="mt-2 p-2 bg-green-50 border border-green-200 rounded text-xs">
-                      <p className="text-green-800 font-medium mb-1">Cards Enhanced:</p>
-                      <p className="text-green-700">
-                        {processedCards.filter(card => hasCustomEffects(card.name)).length} cards enhanced with custom MTG effects, keywords, and activated abilities
-                      </p>
-                      {processedCards.filter(card => hasCustomEffects(card.name)).length > 0 && (
-                        <p className="text-green-600 mt-1">
-                          Enhanced cards: {processedCards.filter(card => hasCustomEffects(card.name)).map(card => card.name).join(', ')}
-                        </p>
-                      )}
                     </div>
                   )}
                 </div>
@@ -526,7 +499,7 @@ const DeckUpload = ({ onBack, onDeckCreated }: DeckUploadProps) => {
               </p>
               {!processingCards && processedCards.length > 0 && (
                 <p className="text-sm text-gray-500 mt-2">
-                  Your deck contains {processedCards.length} unique cards ({processedCards.reduce((sum, card) => sum + (card.quantity || 1), 0)} total cards) and will be saved completely.
+                  Your deck contains {processedCards.length} unique cards ({processedCards.reduce((sum, card) => sum + card.quantity, 0)} total cards) and will be saved completely.
                 </p>
               )}
             </div>

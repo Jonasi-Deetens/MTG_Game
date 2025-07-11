@@ -2,7 +2,6 @@ import React, { createContext, useContext, useState, useEffect, type ReactNode }
 import type { Deck, Card, TurnState, SpellEffect, Target, ActivatedAbility } from '../types/deck';
 import { Phase, Step, EffectType as EffectTypeEnum } from '../types/deck';
 import { api } from '../services/api';
-import { enhanceCardsWithEffects } from '../utils/cardEffects';
 
 // Extended interfaces for game state
 interface DrawnCard extends Card {
@@ -576,19 +575,12 @@ export const DeckProvider: React.FC<DeckProviderProps> = ({ children }) => {
       const player = getPlayer(playerId);
       if (!player) return;
 
-      // Enhance all cards with their MTG effects, keywords, and abilities
-      const enhancedCards = enhanceCardsWithEffects(fetchedDeck.cards);
-      console.log(`Enhanced ${enhancedCards.length} cards with effects`);
-      
-      // Update the deck with enhanced cards
-      const enhancedDeck = { ...fetchedDeck, cards: enhancedCards };
-
       // Initialize shuffled deck
       const allCards: ShuffledCard[] = [];
       let index = 0;
 
-      enhancedDeck.cards.forEach((card) => {
-        if (card.id.toString() !== enhancedDeck.commander_id) {
+      fetchedDeck.cards.forEach((card) => {
+        if (card.id.toString() !== fetchedDeck.commander_id) {
           const quantity = card.quantity || 1;
           for (let i = 0; i < quantity; i++) {
             allCards.push({
@@ -614,7 +606,7 @@ export const DeckProvider: React.FC<DeckProviderProps> = ({ children }) => {
       }
 
       updatePlayer(playerId, {
-        deck: enhancedDeck,
+        deck: fetchedDeck,
         shuffledDeck: shuffled,
         currentDeckIndex: 7,
         drawnCards: initialHand
