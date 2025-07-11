@@ -75,17 +75,17 @@ if $PYTHON_CMD test_setup.py; then
     echo ""
     echo "💡 What you can do now:"
     echo "   1. Import some cards:"
-    echo "      cd backend && python scryfall_importer.py --max-cards 100"
+    echo "      cd backend && python import_cards.py --limit 100"
     echo ""
     echo "   2. Start the API server:"
-    echo "      cd backend && python enhanced_app.py"
+    echo "      cd backend && python app.py"
     echo ""
     echo "   3. Browse the database:"
     echo "      Open http://localhost:8080 in your browser"
     echo "      Login: postgres / mtg_user / mtg_password / mtg_cards"
     echo ""
     echo "   4. Test the API:"
-    echo "      curl http://localhost:5001/api/stats"
+    echo "      curl http://localhost:5001/api/cards/search?q=lightning"
     echo ""
 else
     echo ""
@@ -98,4 +98,6 @@ fi
 
 cd ..
 echo ""
-echo "📚 For detailed instructions, see README_DOCKER_SETUP.md"
+echo "📚 For detailed instructions, see:"
+echo "   - SIMPLE_SETUP.md (recommended)"
+echo "   - README_DOCKER_SETUP.md (full documentation)"

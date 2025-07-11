@@ -135,4 +135,44 @@ export const api = {
     }
     return response.json();
   },
+
+  // Get all cards with filtering and pagination
+  async getCards(params: {
+    page?: number;
+    limit?: number;
+    type?: string;
+    name?: string;
+    rarity?: string;
+    colors?: string;
+  } = {}): Promise<{
+    cards: Card[];
+    total: number;
+    page: number;
+    limit: number;
+    pages: number;
+  }> {
+    const queryParams = new URLSearchParams();
+    
+    if (params.page) queryParams.append('page', params.page.toString());
+    if (params.limit) queryParams.append('limit', params.limit.toString());
+    if (params.type) queryParams.append('type', params.type);
+    if (params.name) queryParams.append('name', params.name);
+    if (params.rarity) queryParams.append('rarity', params.rarity);
+    if (params.colors) queryParams.append('colors', params.colors);
+    
+    const response = await fetch(`${API_BASE_URL}/cards?${queryParams}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch cards');
+    }
+    return response.json();
+  },
+
+  // Get specific card by ID
+  async getCard(cardId: string): Promise<Card> {
+    const response = await fetch(`${API_BASE_URL}/cards/${cardId}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch card');
+    }
+    return response.json();
+  },
 }; 

@@ -1,44 +1,19 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from mtgsdk import Card
 import json
 import os
 from datetime import datetime
+from dotenv import load_dotenv
+from database import get_db
+
+# Load environment variables
+load_dotenv()
 
 app = Flask(__name__)
 CORS(app)
 
-# Database file path
-DB_FILE = 'decks.json'
-
-def load_decks():
-    """Load decks from JSON file"""
-    try:
-        if os.path.exists(DB_FILE):
-            with open(DB_FILE, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-                return data.get('decks', {})
-        return {}
-    except (json.JSONDecodeError, FileNotFoundError, IOError) as e:
-        print(f"Error loading decks: {str(e)}")
-        return {}
-
-def save_decks(decks):
-    """Save decks to JSON file"""
-    try:
-        data = {'decks': decks}
-        with open(DB_FILE, 'w', encoding='utf-8') as f:
-            json.dump(data, f, indent=2, ensure_ascii=False)
-        return True
-    except (IOError, TypeError, ValueError) as e:
-        print(f"Error saving decks: {str(e)}")
-        return False
-
-def get_next_id(decks):
-    """Get next available deck ID"""
-    if not decks:
-        return 1
-    return max(int(k) for k in decks.keys()) + 1
+# Initialize database
+db = get_db()
 
 @app.route('/api/decks', methods=['GET'])
 def get_decks():
@@ -295,25 +270,116 @@ def delete_deck(deck_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/cards', methods=['GET'])
+def get_cards():
+    """Get cards with optional filtering and pagination"""
+    try:
+        # Query parameters
+        page = int(request.args.get('page', 1))
+        limit = min(int(request.args.get('limit', 20)), 100)
+        card_type = request.args.get('type')
+        name_query = request.args.get('name')
+        rarity = request.args.get('rarity')
+        colors = request.args.get('colors')
+        
+        offset = (page - 1) * limit
+        
+        # Build query
+        where_conditions = []
+        params = []
+        
+        if card_type:
+            where_conditions.append("type_line ILIKE %s")
+            params.append(f'%{card_type}%')
+        
+        if name_query:
+            where_conditions.append("name ILIKE %s")
+            params.append(f'%{name_query}%')
+        
+        if rarity:
+            where_conditions.append("rarity = %s")
+            params.append(rarity)
+        
+        if colors:
+            color_list = [c.strip().upper() for c in colors.split(',')]
+            where_conditions.append("colors && %s")
+            params.append(json.dumps(color_list))
+        
+        where_clause = " AND ".join(where_conditions) if where_conditions else "TRUE"
+        
+        # Get total count
+        count_query = f"SELECT COUNT(*) as total FROM cards WHERE {where_clause}"
+        total_result = db.execute_query(count_query, tuple(params))
+        total = total_result[0]['total'] if total_result else 0
+        
+        # Get cards
+        query = f"""
+            SELECT 
+                scryfall_id, name, mana_cost, cmc, type_line, oracle_text,
+                power, toughness, colors, keywords, rarity, set_code, set_name,
+                image_url, ai_generated_effects, ai_generated_keywords,
+                ai_generated_abilities, ai_effect_description, ai_strategic_value
+            FROM cards 
+            WHERE {where_clause}
+            ORDER BY name 
+            LIMIT %s OFFSET %s
+        """
+        params.extend([limit, offset])
+        
+        cards = db.execute_query(query, tuple(params))
+        
+        return jsonify({
+            'cards': cards,
+            'total': total,
+            'page': page,
+            'limit': limit,
+            'pages': (total + limit - 1) // limit
+        })
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/cards/<card_id>', methods=['GET'])
+def get_card_details(card_id):
+    """Get detailed information about a specific card"""
+    try:
+        query = "SELECT * FROM cards WHERE scryfall_id = %s"
+        result = db.execute_query(query, (card_id,))
+        
+        if not result:
+            return jsonify({'error': 'Card not found'}), 404
+        
+        return jsonify(result[0])
+        
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
 @app.route('/api/cards/search', methods=['GET'])
 def search_cards():
     """Search for cards by name"""
-    query = request.args.get('q', '')
+    query = request.args.get('q', '').strip()
+    limit = min(int(request.args.get('limit', 10)), 50)
     
-    if not query or len(query) < 2:
+    if len(query) < 2:
         return jsonify([])
     
     try:
-        cards = Card.where(name=query).all()
+        cards = db.search_cards(query, limit)
         results = []
         
-        for card in cards[:10]:  # Limit to 10 results
+        for card in cards:
             results.append({
-                'id': card.id,
-                'name': card.name,
-                'mana_cost': card.mana_cost,
-                'type': card.type,
-                'image_url': card.image_url
+                'id': card['scryfall_id'],
+                'name': card['name'],
+                'mana_cost': card['mana_cost'],
+                'type': card['type_line'],
+                'image_url': card['image_url'],
+                'colors': card['colors'],
+                'cmc': card['cmc'],
+                'rarity': card['rarity'],
+                'ai_generated_effects': card.get('ai_generated_effects', []),
+                'ai_generated_keywords': card.get('ai_generated_keywords', []),
+                'ai_effect_description': card.get('ai_effect_description', '')
             })
         
         return jsonify(results)

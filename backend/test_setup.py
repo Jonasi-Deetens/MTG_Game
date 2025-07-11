@@ -143,33 +143,48 @@ def test_sample_import():
     """Test importing a few sample cards"""
     print("\n🔍 Testing sample card import...")
     try:
-        from scryfall_importer import ScryfallImporter
-        importer = ScryfallImporter()
+        import requests
         
-        # Temporarily override max cards for testing
-        original_max = importer.max_cards
-        importer.max_cards = 5
+        # Test fetching a few cards from Scryfall
+        print("   Fetching 3 sample cards from Scryfall...")
+        response = requests.get("https://api.scryfall.com/cards/search?q=game:paper+-is:digital&page=1")
         
-        print("   Fetching 5 sample cards...")
-        cards = importer.fetch_all_cards()
-        
-        if len(cards) > 0:
-            print(f"✅ Sample import working: Fetched {len(cards)} cards")
-            print(f"   Sample card: {cards[0]['name']}")
+        if response.status_code == 200:
+            data = response.json()
+            cards = data.get('data', [])[:3]  # Take first 3 cards
             
-            # Test one card with AI effects
-            print("   Testing AI enhancement...")
-            from ai_effects_generator import ai_generator
-            enhanced = ai_generator.generate_batch_effects([cards[0]], delay=0)
-            
-            if enhanced and len(enhanced) > 0:
-                print("✅ AI enhancement working")
-                return True
+            if len(cards) > 0:
+                print(f"✅ Sample fetch working: Got {len(cards)} cards")
+                print(f"   Sample card: {cards[0]['name']}")
+                
+                # Test AI enhancement on one card
+                print("   Testing AI enhancement...")
+                from ai_effects_generator import ai_generator
+                
+                # Convert one card to our format
+                sample_card = {
+                    'name': cards[0]['name'],
+                    'mana_cost': cards[0].get('mana_cost', ''),
+                    'type_line': cards[0].get('type_line', ''),
+                    'oracle_text': cards[0].get('oracle_text', ''),
+                    'colors': cards[0].get('colors', []),
+                    'rarity': cards[0].get('rarity', ''),
+                    'cmc': cards[0].get('cmc', 0)
+                }
+                
+                effects = ai_generator.generate_card_effects(sample_card)
+                
+                if effects and 'spell_effects' in effects:
+                    print("✅ AI enhancement working")
+                    return True
+                else:
+                    print("❌ AI enhancement failed")
+                    return False
             else:
-                print("❌ AI enhancement failed")
+                print("❌ Sample fetch failed: No cards returned")
                 return False
         else:
-            print("❌ Sample import failed: No cards fetched")
+            print(f"❌ Sample fetch failed: HTTP {response.status_code}")
             return False
             
     except Exception as e:
